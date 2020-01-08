@@ -1,7 +1,7 @@
 default_send_headers <- c(
   "Accept" = "application/json",
   "Content-Type" = "application/json",
-  "User-Agent" = "https://github.com/Appsilon/auth0-api"
+  "User-Agent" = "https://github.com/Appsilon/auth0api"
 )
 
 build_request <- function(
@@ -10,7 +10,6 @@ build_request <- function(
 ) {
   request <- list(
     method = method,
-    api_url = api_url,
     endpoint = endpoint,
     url = NULL,
     headers = c(
@@ -23,9 +22,15 @@ build_request <- function(
   )
 
   request <- set_endpoint(request)
-  request <- set_url(request)
+  request <- set_url(request, api_url)
   request <- set_query(request)
   request <- set_body(request)
+  request <- check_method(request)
+  request <- remove_endpoint(request)
+}
+
+remove_endpoint <- function(req) {
+  return(req[!(names(req) %in% "endpoint")])
 }
 
 set_endpoint <- function(req) {
@@ -35,7 +40,7 @@ set_endpoint <- function(req) {
     return(req)
   }
 
-  req$endpoint <- glue_data(params, req$endpoint)
+  req$endpoint <- as.character(glue_data(params, req$endpoint))
   req$params <- params[!names(params) %in% used_params]
 
   if (!nzchar(req$endpoint)) return(req)
@@ -46,19 +51,21 @@ set_endpoint <- function(req) {
   }
 
   req$method <- gsub("^([^/ ]+)\\s+.*$", "\\1", req$endpoint)
-  stopifnot(req$method %in% c("GET", "POST", "PATCH", "PUT", "DELETE"))
   req$endpoint <- gsub("^[A-Z]+ ", "", req$endpoint)
   req
 }
 
-set_url <- function(req) {
+set_url <- function(req, api_url = NULL) {
   if (grepl("^https?://", req$endpoint)) {
     req$url <- URLencode(req$endpoint)
   } else {
-    api_url <- req$api_url
     req$url <- URLencode(paste0(api_url, req$endpoint))
   }
+  req
+}
 
+check_method <- function(req) {
+  stopifnot(req$method %in% c("GET", "POST", "PATCH", "PUT", "DELETE"))
   req
 }
 

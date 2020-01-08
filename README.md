@@ -7,7 +7,7 @@ The `auth0api` library is a minimalistic Auth0 management API client in R.
 Using the 'devtools' package:
 
     > install.packages("devtools")
-    > devtools::install_github("Appsilon/auth0-api")
+    > devtools::install_github("Appsilon/auth0api")
 
 # CRAN
 This package is still in the development phase and it has not been published on CRAN yet.

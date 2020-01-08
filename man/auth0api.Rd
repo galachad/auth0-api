@@ -3,8 +3,7 @@
 \docType{package}
 \name{auth0api}
 \alias{auth0api}
-\alias{auth0api-package}
 \title{Aut0 API Client}
 \description{
-Minimal wrapper to access Auth0 API.
+Minimal wrapper to access Auth0 Managment API.
 }

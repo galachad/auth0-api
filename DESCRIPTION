@@ -1,7 +1,7 @@
 Package: auth0api
 Type: Package
 Title: Auth0 API Client
-Version: 0.1.1
+Version: 0.1.2
 Author: Adam Foryś
 Maintainer: Adam Foryś <adam@appsilon.com>
 Description: This package contain the set of Auth0 api endpoint.
@@ -17,6 +17,7 @@ Imports:
     utils,
     grDevices
 Suggests:
-    testthat
+    testthat,
+    lintr
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2.9000

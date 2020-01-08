@@ -9,10 +9,12 @@ get_user(user_id, fields = NULL, include_fields = NULL, ...)
 \arguments{
 \item{user_id}{The id of the user to retrieve}
 
-\item{fields}{A comma separated list of fields to include or exclude (depending on include_fields) from the result.
-If left empty then all fields are retrieved.}
+\item{fields}{A comma separated list of fields to include or exclude
+(depending on include_fields) from the result. If left empty then all
+fields are retrieved.}
 
-\item{include_fields}{"true" if the fields specified are to be included in the result, "false" otherwise. Default is "true".}
+\item{include_fields}{"true" if the fields specified are to be included in
+the result, "false" otherwise. Default is "true".}
 
 \item{...}{other \link{auth0} settings.}
 }
@@ -20,7 +22,9 @@ If left empty then all fields are retrieved.}
 Response from the Auth0 API as \code{aut0_api} object.
 }
 \description{
-The endpoint: \url{https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id} can be used to retrieve user details given the \code{user_id}.
+The endpoint:
+\url{https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id}
+can be used to retrieve user details given the \code{user_id}.
 }
 \examples{
 \dontrun{

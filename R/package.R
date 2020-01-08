@@ -1,6 +1,6 @@
 #' Aut0 API Client
 #'
-#' Minimal wrapper to access Auth0 API.
+#' Minimal wrapper to access Auth0 Managment API.
 #'
 #' @docType package
 #' @import glue
@@ -54,7 +54,7 @@ NULL
 #'   \code{.token}). This can be used to override or augment the
 #'   defaults, which are as follows: the \code{Accept} field set up
 #'   to \code{"application/json"} by default and the
-#'   \code{User-Agent} field \code{"https://github.com/Appsilon/auth0-api"} - default.
+#'   \code{User-Agent} field \code{"https://github.com/Appsilon/auth0api"} - default.
 #'   This can be used, e.g. to provide a custom headers for special needs.
 #' @return Response from the Auth0 API as \code{aut0_api} object
 #' @examples
@@ -65,7 +65,7 @@ NULL
 #' }
 #' @export
 auth0 <- function(endpoint, ..., .domain = NULL, .auth_key = api_token(), .method = "GET", .headers = NULL) {
-  if(missing(.domain) && !grepl("^http", endpoint)) .domain <- api_domain()
+  if (missing(.domain) && !grepl("^http", endpoint)) .domain <- api_domain()
 
   req <- build_request(
     endpoint,

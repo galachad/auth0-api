@@ -4,8 +4,14 @@
 \alias{auth0}
 \title{Query the Auth0 Managment API}
 \usage{
-auth0(endpoint, ..., .domain = NULL, .auth_key = api_token(),
-  .method = "GET", .headers = NULL)
+auth0(
+  endpoint,
+  ...,
+  .domain = NULL,
+  .auth_key = api_token(),
+  .method = "GET",
+  .headers = NULL
+)
 }
 \arguments{
 \item{endpoint}{Auth0 API endpoint. Must be one of the following forms:
@@ -36,7 +42,7 @@ Used if \code{endpoint}  contains a path only.}
 \code{.token}). This can be used to override or augment the
 defaults, which are as follows: the \code{Accept} field set up
 to \code{"application/json"} by default and the
-\code{User-Agent} field \code{"https://github.com/Appsilon/auth0-api"} - default.
+\code{User-Agent} field \code{"https://github.com/Appsilon/auth0api"} - default.
 This can be used, e.g. to provide a custom headers for special needs.}
 }
 \value{
